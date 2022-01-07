@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../blocs/model/cart_model.dart';
+import '../../../blocs/models/cart_model.dart';
 
 class CartItem extends StatelessWidget {
   const CartItem({Key? key, this.cartModel}) : super(key: key);

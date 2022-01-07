@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../blocs/model/brand_model.dart';
+import '../../blocs/models/brand_model.dart';
 
 final brandModelProvider =
     StateNotifierProvider<DUMMYBRANDS, List<BrandModel>>((ref) {

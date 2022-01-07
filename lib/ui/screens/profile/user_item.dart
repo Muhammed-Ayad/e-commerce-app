@@ -1,6 +1,8 @@
+import 'package:e_commerce_app/generated/locale_keys.g.dart';
+import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 
-import '../../../blocs/model/user_model.dart';
+import '../../../blocs/models/user_model.dart';
 import './edit_profile_screen.dart';
 
 class UserItem extends StatelessWidget {
@@ -64,21 +66,21 @@ class UserItem extends StatelessWidget {
                     side: BorderSide.none),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
+                  children:  [
                     Padding(
-                      padding: EdgeInsets.symmetric(vertical: 14),
+                      padding: const EdgeInsets.symmetric(vertical: 14),
                       child: Text(
-                        'Edit ',
-                        style: TextStyle(
+                        LocaleKeys.edit.tr(),
+                        style: const TextStyle(
                             color: Colors.white,
                             fontSize: 20,
                             fontWeight: FontWeight.bold),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
-                    Icon(
+                    const Icon(
                       Icons.edit,
                       color: Colors.white,
                     )

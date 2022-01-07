@@ -22,7 +22,7 @@ class CategoriesScreen extends StatelessWidget {
       child: SizedBox(
         height: height,
         child: Consumer(builder: (context, ref, child) {
-          final categoryitems = ref.watch(categoryModellProvider.notifier);
+          final categoryitems = ref.read(categoryModellProvider.notifier);
           return GridView.builder(
             scrollDirection: scrollDirection,
             shrinkWrap: true,
@@ -31,14 +31,14 @@ class CategoriesScreen extends StatelessWidget {
             itemCount: categoryitems.items.length,
             itemBuilder: (context, i) {
               return CategoryItem(
-                image: categoryitems.items[i].image,
-                title: categoryitems.items[i].title,
+                categoryModel: categoryitems.items[i],
+                
               );
             },
             gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: crossAxisCount,
-              mainAxisSpacing: 50,
-              crossAxisSpacing: 20,
+              mainAxisSpacing: 15,
+              crossAxisSpacing: 15,
             ),
           );
         }),

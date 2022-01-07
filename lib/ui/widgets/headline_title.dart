@@ -1,3 +1,5 @@
+import 'package:e_commerce_app/generated/locale_keys.g.dart';
+import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 
 class HeadlineTitle extends StatelessWidget {
@@ -31,7 +33,7 @@ class HeadlineTitle extends StatelessWidget {
                 ),
               );
             },
-            child: const Text('See All'),
+            child:  Text(LocaleKeys.seeAll.tr(),),
           )
         ],
       ),

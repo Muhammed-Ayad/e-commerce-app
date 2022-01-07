@@ -6,4 +6,5 @@ class CategoryModel {
     required this.title,
     required this.image,
   });
+  
 }

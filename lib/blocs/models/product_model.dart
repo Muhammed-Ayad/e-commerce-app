@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class Product {
+class ProductModel {
   late String imageUrl;
   late String title;
   late String price;
@@ -10,7 +10,7 @@ class Product {
   late String brand;
   late String id;
 
-  Product({
+  ProductModel({
     required this.imageUrl,
     required this.title,
     required this.price,
@@ -21,7 +21,7 @@ class Product {
     required this.id,
   });
 
-  Product.fromJson(DocumentSnapshot  json) {
+  ProductModel.fromJson(DocumentSnapshot  json) {
     imageUrl = json["image"];
     title = json["title"];
     price = json["price"];

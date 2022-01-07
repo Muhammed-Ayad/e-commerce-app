@@ -1,28 +1,27 @@
 import 'dart:developer';
 
 
- import 'package:flutter/material.dart';
+ import 'package:e_commerce_app/blocs/models/category_model.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import './categories.dart';
 import '../../../../services/riverpod/state_provider.dart';
 
 class CategoryItem extends StatelessWidget {
-  final String title;
-  final String image;
+  final CategoryModel categoryModel;
 
-  const CategoryItem({
-    Key? key,
-    required this.title,
-    required this.image,
-  }) : super(key: key);
+  const CategoryItem({Key? key, required this.categoryModel}) : super(key: key);
+  
+
+  
   @override
   Widget build(BuildContext context) {
     return Consumer(
       builder: (context, ref, child) => InkWell(
         onTap: () {
-          log(title);
-          ref.read(categoryProvider.state).state = title;
+          log(categoryModel.title);
+          ref.read(categoryProvider.state).state = categoryModel.title;
            Navigator.pushNamed(
                                   context, Categories.id);
       
@@ -34,7 +33,7 @@ class CategoryItem extends StatelessWidget {
               child: SizedBox(
                 height: 150,
                 child: Image.asset(
-                  image,
+                  categoryModel.image,
                   fit: BoxFit.fill,
                 ),
               ),
@@ -42,7 +41,7 @@ class CategoryItem extends StatelessWidget {
             Flexible(
               flex: 2,
               child: Text(
-                title,
+                categoryModel.title,
                 style: Theme.of(context).textTheme.headline1,
               ),
             ),

@@ -1,5 +1,5 @@
 class ValidarorsAuth {
-  // *  Name Validator
+ 
   static String? nameValidator(String value) {
     if (value.isEmpty) {
       return ' Name is empty';
@@ -11,7 +11,7 @@ class ValidarorsAuth {
 
  
 
-  // * Email Validator
+  
   static String? emailValidator(String value) {
     if (value.isEmpty) {
       return 'Email is empty';
@@ -25,7 +25,7 @@ class ValidarorsAuth {
     
   }
 
-  // * password Validator
+  
   static String? passwordValidator(String value) {
     if (value.isEmpty) {
       return 'password is empty';

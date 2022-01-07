@@ -3,7 +3,7 @@ import 'dart:developer';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../../blocs/model/product.dart';
+import '../../../blocs/models/product_model.dart';
 import '../../../services/firebase/firestore_service.dart';
 import '../home/product/product_item.dart';
 
@@ -74,7 +74,7 @@ class _FavoriteScreenState extends State<FavoriteScreen> {
                           itemCount: snapshot.data.docs.length,
                           itemBuilder: (context, i) {
                             return ProductItem(
-                              product: Product.fromJson(
+                              product: ProductModel.fromJson(
                                 snapshot.data.docs[i],
                               ),
                             );

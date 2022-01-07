@@ -1,11 +1,13 @@
+import 'package:cached_network_image/cached_network_image.dart';
+
 import 'product_details_screen.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../blocs/model/product.dart';
+import '../../../../blocs/models/product_model.dart';
 import '../../../../themes/colors.dart';
 
 class ProductItem extends StatelessWidget {
-  final Product product;
+  final ProductModel product;
 
   const ProductItem({Key? key, required this.product}) : super(key: key);
   @override
@@ -73,13 +75,22 @@ class ProductItem extends StatelessWidget {
                     ),
                     Expanded(
                       flex: 2,
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: kDefaultPadding),
-                        child: Image.network(
-                          product.imageUrl,
-                          fit: BoxFit.fill,
+                      child: CachedNetworkImage(
+                        imageUrl: product.imageUrl,
+                        imageBuilder: (context, imageProvider) => Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Theme.of(context).backgroundColor,
+                            image: DecorationImage(
+                              image: imageProvider,
+                              fit: BoxFit.fill,
+                            ),
+                          ),
                         ),
+                        placeholder: (context, url) =>
+                            const Center(child: CircularProgressIndicator()),
+                        errorWidget: (context, url, error) =>
+                            const Icon(Icons.error),
                       ),
                     ),
                   ],

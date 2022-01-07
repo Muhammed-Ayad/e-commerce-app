@@ -7,7 +7,7 @@ class CarouselSliderWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 210,
+      height: 150,
       width: double.infinity,
       child: Carousel(
         indicatorBgPadding: 0.0,

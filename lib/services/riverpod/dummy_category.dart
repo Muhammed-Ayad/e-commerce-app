@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../blocs/model/category_model.dart';
+import '../../blocs/models/category_model.dart';
 
 
 final categoryModellProvider =

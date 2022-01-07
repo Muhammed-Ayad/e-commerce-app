@@ -2,11 +2,11 @@ import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter/material.dart';
 
-import '../../../blocs/model/cart_model.dart';
-import '../../../blocs/providers/cart_provider/cart_provider.dart';
-import '../../../blocs/providers/cart_provider/cart_state.dart';
-import '../../../blocs/providers/order_provider.dart/order_provider.dart';
-import '../../../blocs/providers/order_provider.dart/order_state.dart';
+import '../../../blocs/models/cart_model.dart';
+import '../../../blocs/providers/cart/cart_provider.dart';
+import '../../../blocs/providers/cart/cart_state.dart';
+import '../../../blocs/providers/order/order_provider.dart';
+import '../../../blocs/providers/order/order_state.dart';
 import '../../../generated/locale_keys.g.dart';
 import './cart_item.dart';
 

@@ -35,5 +35,11 @@ abstract class  LocaleKeys {
   static const doYou = 'doYou';
   static const cancel = 'cancel';
   static const language = 'language';
+  static const seeAll = 'seeAll';
+  static const problem = 'problem';
+  static const noData = 'noData';
+  static const search = 'search';
+  static const infoUser = 'infoUser';
+  static const edit = 'edit';
 
 }

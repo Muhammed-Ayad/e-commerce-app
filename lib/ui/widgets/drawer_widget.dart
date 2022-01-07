@@ -9,7 +9,6 @@ import '../../generated/locale_keys.g.dart';
 import '../screens/drawer/contant_us_screen.dart';
 import '../../data/local/local_data.dart';
 
-
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({Key? key}) : super(key: key);
 
@@ -62,7 +61,7 @@ class DrawerWidget extends StatelessWidget {
         _listTiles(
           function: () {},
           icon: Icons.language,
-          label: 'language',
+          label: LocaleKeys.language.tr(),
         ),
         Padding(
           padding: const EdgeInsets.all(8.0),
@@ -106,9 +105,7 @@ class DrawerWidget extends StatelessWidget {
   }
 
   void _navigateToTaskScreen(context) {
-      Navigator.pushNamed(
-                                  context, ContantUsScreen.id);
-     
+    Navigator.pushNamed(context, ContantUsScreen.id);
   }
 
   void _logout(context) {

@@ -5,10 +5,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 
-import '../../../blocs/providers/order_provider.dart/order_provider.dart';
-import '../../../blocs/providers/order_provider.dart/order_state.dart';
+import '../../../blocs/providers/order/order_provider.dart';
+import '../../../blocs/providers/order/order_state.dart';
 import '../../../generated/locale_keys.g.dart';
-import '../../../blocs/model/orders_model.dart';
+import '../../../blocs/models/orders_model.dart';
 import '../../widgets/drawer_widget.dart';
 
 class OrderScreen extends StatelessWidget {

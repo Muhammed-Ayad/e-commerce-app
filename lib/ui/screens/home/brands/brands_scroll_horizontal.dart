@@ -11,7 +11,7 @@ class BrandsScrollHorizontal extends StatelessWidget {
     return  const BrandsScreen(
         crossAxisCount: 1,
         scrollDirection: Axis.horizontal,
-        height: 200,
+        height: 150,
       );
   }
 }

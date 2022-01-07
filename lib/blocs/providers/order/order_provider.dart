@@ -2,11 +2,12 @@ import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../data/remote/dio_client.dart';
-import '../../model/cart_model.dart';
-import '../../model/orders_model.dart';
+import '../../models/cart_model.dart';
+import '../../models/orders_model.dart';
 import './order_state.dart';
 
 final orderItemProvider =
@@ -29,10 +30,15 @@ class OrderProvider extends StateNotifier<OrderState> {
     }
   }
 
-  Future<void> fetchAndSetOrders() async {
+  Future<void> fetchAndSetOrders([bool filterByUser = false]) async {
     try {
-      final data =
-          await DioClient().send(reqMethod: 'get', path: 'orders.json');
+      final userId = FirebaseAuth.instance.currentUser!.uid;
+      final filterString = filterByUser
+          ? 'orderBy="id"&equalTo="$userId"'
+          : 'orderBy="id"&equalTo="$userId"';
+
+      final data = await DioClient()
+          .send(reqMethod: 'get', path: 'orders.json?$filterString');
       final List<OrderModel> loadedOrders = [];
       final extractedData = data.data;
       final List<OrderModel> orders;
@@ -42,7 +48,7 @@ class OrderProvider extends StateNotifier<OrderState> {
       extractedData.forEach((orderId, orderData) {
         loadedOrders.add(
           OrderModel(
-            id: orderId,
+            id: FirebaseAuth.instance.currentUser!.uid,
             amount: orderData['amount'],
             dateTime: DateTime.parse(orderData['dateTime']),
             products: (orderData['products'] as List<dynamic>)
@@ -76,6 +82,7 @@ class OrderProvider extends StateNotifier<OrderState> {
       final timestamp = DateTime.now();
       final data =
           await DioClient().send(reqMethod: 'post', path: 'orders.json', body: {
+        'id': FirebaseAuth.instance.currentUser!.uid,
         'amount': total,
         'dateTime': timestamp.toIso8601String(),
         'products': cartProducts

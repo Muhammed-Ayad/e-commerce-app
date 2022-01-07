@@ -1,4 +1,4 @@
-import '../../model/cart_model.dart';
+import '../../models/cart_model.dart';
 
 
 abstract class CartState {}

@@ -7,10 +7,10 @@ import '../../../generated/locale_keys.g.dart';
 import '../../../themes/text_styles.dart';
 import '../../widgets/button_auth_widget.dart';
 import '../../widgets/button_chick_here_widget.dart';
-import '../home/home_screen.dart';
 import '../../../services/firebase/auth_service.dart';
 import '../../../services/firebase/firestore_service.dart';
 import '../../../services/validators/validators_auth.dart';
+import '../tap_screen.dart';
 import './login_screen.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -134,7 +134,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
                                 if (result != null) {
                                   Navigator.pushReplacementNamed(
-                                      context, HomeScreen.id);
+                                      context, TapScreen.id);
                                 }
                               }
                               setState(() {

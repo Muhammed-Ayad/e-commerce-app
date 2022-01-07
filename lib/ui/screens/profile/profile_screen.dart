@@ -52,14 +52,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
               Navigator.pushNamed(context, FavoriteScreen.id);
             },
           ),
-          CardPageItem(
-            icon: Icons.upload,
-            title: LocaleKeys.uploadProduct.tr(),
-            color: Colors.blue,
-            onPressed: () {
-              Navigator.pushNamed(context, UploadProductForm.id);
-            },
-          ),
+          // CardPageItem(
+          //   icon: Icons.upload,
+          //   title: LocaleKeys.uploadProduct.tr(),
+          //   color: Colors.blue,
+          //   onPressed: () {
+          //     Navigator.pushNamed(context, UploadProductForm.id);
+          //   },
+          // ),
         ],
       ),
     );

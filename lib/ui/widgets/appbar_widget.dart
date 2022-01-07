@@ -1,23 +1,33 @@
+import 'package:e_commerce_app/ui/screens/home/search_screen.dart';
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:fluttericon/font_awesome_icons.dart';
 
-import '../../blocs/providers/cart_provider/cart_provider.dart';
-import '../../blocs/providers/cart_provider/cart_state.dart';
+import '../../blocs/providers/cart/cart_provider.dart';
+import '../../blocs/providers/cart/cart_state.dart';
 import '../../generated/locale_keys.g.dart';
 import '../screens/cart/cart_screen.dart';
 import './badge.dart';
 
-PreferredSizeWidget buildAppBar() {
+PreferredSizeWidget buildAppBar(context) {
   return AppBar(
-    iconTheme: const IconThemeData(color: Colors.black),
+    iconTheme: const IconThemeData(color: Colors.white),
     title: Text(
       LocaleKeys.title.tr(),
     ),
     centerTitle: true,
     elevation: 6,
     actions: [
+      IconButton(
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const SearchScreen()));
+          },
+          icon: const Icon(
+            Icons.search,
+            color: Colors.white,
+          )),
       Consumer(
         builder: (context, ref, child) {
           final state = ref.watch(cartItemProvider);

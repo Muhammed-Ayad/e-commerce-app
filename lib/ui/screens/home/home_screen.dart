@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/generated/locale_keys.g.dart';
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 
@@ -19,7 +20,7 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: const DrawerWidget(),
-      appBar: buildAppBar(),
+      appBar: buildAppBar(context),
       body: ListView(
         children: [
           // Special for displaying advertisements and discounts
@@ -30,20 +31,18 @@ class HomeScreen extends StatelessWidget {
 
           // Categories
           HeadlineTitle(
-            title: 'Categories',
+            title: LocaleKeys.categories.tr(),
             context: context,
             screen: const CategoriesScrollVertical(),
           ),
 
           const CategoriesScrollHorizontal(),
 
-          const SizedBox(
-            height: 20,
-          ),
+      
 
           // Brands
           HeadlineTitle(
-            title: 'Brands',
+            title: LocaleKeys.brands.tr(),
             context: context,
             screen: const BrandsScrollVertical(),
           ),

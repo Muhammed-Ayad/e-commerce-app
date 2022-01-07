@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../../blocs/model/product.dart';
+import '../../../../blocs/models/product_model.dart';
 import '../../../../services/firebase/firestore_service.dart';
 import '../../../../services/riverpod/state_provider.dart';
 import '../../../../themes/colors.dart';
@@ -56,7 +56,7 @@ class Brands extends StatelessWidget {
                               itemCount: snapshot.data.docs.length,
                               itemBuilder: (context, i) {
                                 return ProductItem(
-                                  product: Product.fromJson(
+                                  product: ProductModel.fromJson(
                                     snapshot.data.docs[i],
                                   ),
                                 );

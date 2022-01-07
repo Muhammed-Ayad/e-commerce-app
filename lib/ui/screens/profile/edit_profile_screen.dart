@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../widgets/space_widget.dart';
-import '../../../blocs/model/user_model.dart';
+import '../../../blocs/models/user_model.dart';
 import '../../../services/firebase/firestore_service.dart';
 import '../../widgets/scaffold_message.dart';
 

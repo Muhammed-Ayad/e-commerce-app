@@ -12,7 +12,7 @@ class CategoriesScrollHorizontal extends StatelessWidget {
     return const CategoriesScreen(
       crossAxisCount: 1,
       scrollDirection: Axis.horizontal,
-      height: 140,
+      height: 110,
     );
   }
 }

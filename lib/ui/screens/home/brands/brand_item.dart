@@ -29,7 +29,7 @@ class BrandItem extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(
-                height: 150,
+                height: 110,
                 child: Image.asset(
                   image,
                   fit: BoxFit.cover,

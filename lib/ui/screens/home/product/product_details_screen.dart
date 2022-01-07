@@ -3,25 +3,31 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../../../blocs/model/product.dart';
-import '../../../../blocs/providers/cart_provider/cart_provider.dart';
-import '../../../../blocs/providers/cart_provider/cart_state.dart';
+import '../../../../blocs/models/product_model.dart';
+import '../../../../blocs/providers/cart/cart_provider.dart';
+import '../../../../blocs/providers/cart/cart_state.dart';
 import '../../../../generated/locale_keys.g.dart';
 import '../../../../themes/colors.dart';
 import '../../../widgets/appbar_widget.dart';
 
-class ProductDetailsScreen extends StatelessWidget {
-  final Product product;
+class ProductDetailsScreen extends StatefulWidget {
+  final ProductModel product;
 
   const ProductDetailsScreen({Key? key, required this.product})
       : super(key: key);
 
   @override
+  State<ProductDetailsScreen> createState() => _ProductDetailsScreenState();
+}
+
+class _ProductDetailsScreenState extends State<ProductDetailsScreen> {
+  
+  @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    final price = double.parse(product.price);
+    final price = double.parse(widget.product.price);
     return Scaffold(
-      appBar: buildAppBar(),
+      appBar: buildAppBar(context),
       bottomSheet: Row(
         children: [
           Expanded(
@@ -37,9 +43,9 @@ class ProductDetailsScreen extends StatelessWidget {
                     color: Colors.redAccent.shade400,
                     onPressed: () {
                       ref.watch(cartItemProvider.notifier).addItem(
-                            product.id,
+                            widget.product.id,
                             price,
-                            product.title.toString(),
+                            widget.product.title.toString(),
                             state.cartItems,
                           );
                     },
@@ -62,9 +68,11 @@ class ProductDetailsScreen extends StatelessWidget {
                 onPressed: () async {
                   var sharedPref = await SharedPreferences.getInstance();
 
-                  await sharedPref.setString('idPrefer', product.id);
+                  await sharedPref.setString('idPrefer', widget.product.id);
                 },
-                icon: const Icon(Icons.favorite),
+                icon: const Icon(
+                     Icons.favorite
+                    ),
                 color: Colors.white,
               ),
             ),
@@ -101,7 +109,7 @@ class ProductDetailsScreen extends StatelessWidget {
                           ),
                         ),
                         Image.network(
-                          product.imageUrl,
+                          widget.product.imageUrl,
                           fit: BoxFit.fill,
                           height: size.width * 0.75,
                           width: size.width * 0.75,
@@ -113,7 +121,7 @@ class ProductDetailsScreen extends StatelessWidget {
                     padding: const EdgeInsets.symmetric(
                         vertical: kDefaultPadding / 2),
                     child: Text(
-                      product.title,
+                      widget.product.title,
                       style: Theme.of(context).textTheme.headline6,
                     ),
                   ),
@@ -136,7 +144,7 @@ class ProductDetailsScreen extends StatelessWidget {
                 vertical: kDefaultPadding / 2,
               ),
               child: Text(
-                product.description,
+                widget.product.description,
                 style: const TextStyle(color: Colors.white, fontSize: 19.0),
               ),
             ),
@@ -148,15 +156,15 @@ class ProductDetailsScreen extends StatelessWidget {
                 height: 1,
               ),
             ),
-            _details('Brand: ', product.brand),
+            _details('Brand: ', widget.product.brand),
             const SizedBox(
               height: 15,
             ),
-            _details('Quantity: ', product.quantity),
+            _details('Quantity: ', widget.product.quantity),
             const SizedBox(
               height: 15,
             ),
-            _details('Category: ', product.category),
+            _details('Category: ', widget.product.category),
             const SizedBox(
               height: 30,
             ),

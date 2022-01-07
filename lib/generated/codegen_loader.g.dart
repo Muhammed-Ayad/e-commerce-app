@@ -15,9 +15,9 @@ class CodegenLoader extends AssetLoader{
   }
 
   static const Map<String,dynamic> ar = {
-  "title": "متجر الكتروني",
-  "brands": "المنتجات",
-  "categories": "العلامات التجارية",
+  "title": "متجر للهواتف",
+  "brands": "العلامات التجارية",
+  "categories": "المنتجات",
   "homePage": "الرئيسية",
   "cartPage": "الطلبات",
   "profilePage": "الصفحة الشخصية",
@@ -48,10 +48,16 @@ class CodegenLoader extends AssetLoader{
   "signOut": "خروج",
   "doYou": "هل تريد الخروج",
   "cancel": "إلغاء",
-  "language": "العربية"
+  "language": "اللغة",
+  "seeAll": "عرض الكل",
+  "problem": "يوجد مشكلة",
+  "noData": "لا يوجد بيانات",
+  "search": "بحث",
+  "infoUser": "معلومات المستخدم",
+  "edit": "تعديل"
 };
 static const Map<String,dynamic> en = {
-  "title": "E Commerce App",
+  "title": "Mobile Shop",
   "brands": "Brands",
   "categories": "Categories",
   "homePage": "Home",
@@ -84,7 +90,13 @@ static const Map<String,dynamic> en = {
   "signOut": "Sign out",
   "doYou": "Do you wanna Sign out",
   "cancel": "Cancel",
-  "language": "English"
+  "language": "language",
+  "seeAll": "See All",
+  "problem": "There is a problem",
+  "noData": "There are no data",
+  "search": "Search",
+  "infoUser": "User Information",
+  "edit": "Edit"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": ar, "en": en};
 }

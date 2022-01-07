@@ -1,5 +1,5 @@
 {
-    "title": "E Commerce App",
+    "title": "Mobile Shop",
     "brands": "Brands",
     "categories":"Categories",
     "homePage":"Home",
@@ -32,7 +32,13 @@
     "signOut":"Sign out",
     "doYou":"Do you wanna Sign out",
     "cancel":"Cancel",
-    "language":"English"
+    "language":"language",
+    "seeAll":"See All",
+    "problem":"There is a problem",
+    "noData":"There are no data",
+    "search":"Search",
+    "infoUser":"User Information",
+    "edit":"Edit"
     
 
 }
