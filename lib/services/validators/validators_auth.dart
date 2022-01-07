@@ -1,7 +1,7 @@
 class ValidarorsAuth {
  
-  static String? nameValidator(String value) {
-    if (value.isEmpty) {
+  static String? nameValidator(String? value) {
+    if (value!.isEmpty) {
       return ' Name is empty';
     }
     if (value.length < 4) {
@@ -12,8 +12,8 @@ class ValidarorsAuth {
  
 
   
-  static String? emailValidator(String value) {
-    if (value.isEmpty) {
+  static String? emailValidator(String ?value) {
+    if (value!.isEmpty) {
       return 'Email is empty';
     }
     if (!value.contains('@')) {
@@ -26,8 +26,8 @@ class ValidarorsAuth {
   }
 
   
-  static String? passwordValidator(String value) {
-    if (value.isEmpty) {
+  static String? passwordValidator(String ?value) {
+    if (value!.isEmpty) {
       return 'password is empty';
     }
     if (value.length < 7) {

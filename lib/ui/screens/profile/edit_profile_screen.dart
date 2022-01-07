@@ -1,3 +1,5 @@
+import 'package:e_commerce_app/generated/locale_keys.g.dart';
+import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
 
 import '../../widgets/space_widget.dart';
@@ -17,14 +19,14 @@ class EditProfileScreen extends StatefulWidget {
 }
 
 class _EditProfileScreenState extends State<EditProfileScreen> {
-  final myEmailController = TextEditingController();
+ 
   final myNameController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
   bool loading = false;
 
   @override
   void initState() {
-    myEmailController.text = widget.userModel.email;
+    
     myNameController.text = widget.userModel.userName;
     super.initState();
   }
@@ -41,7 +43,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Edit Profile'),
+        title:  Text(LocaleKeys.editProfile.tr()),
       ),
       body: Container(
         margin: const EdgeInsets.symmetric(vertical: 5),
@@ -53,21 +55,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 SpaceAndTitleWidget(
-                  title: '    Email',
-                ),
-                TextFormField(
-                  controller: myEmailController,
-                  validator: (val) {
-                    if (val!.isEmpty) {
-                      return 'please Enter Email';
-                    }
-                  },
-                  decoration: const InputDecoration(
-                    hintText: 'ex : mohamed@gmail.com',
-                  ),
-                ),
-                SpaceAndTitleWidget(
-                  title: '    UserName',
+                  title: LocaleKeys.userName.tr(),
                 ),
                 TextFormField(
                   controller: myNameController,
@@ -89,7 +77,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
           ? const CircularProgressIndicator()
           : FloatingActionButton(
               onPressed: () async {
-                if (myEmailController.text == "" ||
+                if (
                     myNameController.text == "") {
                   Utils.customMessage(
                       context, "All fields are required!", Colors.redAccent);
@@ -98,7 +86,7 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                     loading = true;
                   });
                   await FirestoreService.updatetUser(
-                    email: myEmailController.text,
+                   
                     userName: myNameController.text,
                     docId: widget.docsid,
                   );

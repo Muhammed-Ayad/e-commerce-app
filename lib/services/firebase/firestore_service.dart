@@ -9,6 +9,7 @@ class FirestoreService {
   static final _auth = FirebaseAuth.instance;
 
   static get getCollectionProducts => _firestore.collection('products');
+  static get getUser => _firestore.collection('users');
 
   static Future insertUser(
       {required String email, required String userName}) async {
@@ -24,13 +25,11 @@ class FirestoreService {
   }
 
   static Future updatetUser({
-    required String email,
     required String userName,
     required String docId,
   }) async {
     try {
       await _firestore.collection('users').doc(docId).update({
-        "email": email,
         "id": _auth.currentUser!.uid,
         "name": userName,
       });
@@ -38,6 +37,8 @@ class FirestoreService {
       log(e.toString());
     }
   }
+
+  
 
   static Future addAddres(
       {required String addressOne,

@@ -18,4 +18,7 @@ class UserModel {
       userId: snapshot['id'],
     );
   }
+
+  @override
+  String toString() => 'UserModel(userName: $userName, email: $email, userId: $userId)';
 }

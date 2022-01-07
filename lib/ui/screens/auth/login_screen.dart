@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-
 import '../../../generated/locale_keys.g.dart';
 import '../../../themes/text_styles.dart';
 import '../../widgets/button_auth_widget.dart';
@@ -70,7 +69,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     hintText: LocaleKeys.email.tr(),
                   ),
                   controller: _emailController,
-                  validator: (value) => ValidarorsAuth.emailValidator(value!),
+                  validator: ValidarorsAuth.emailValidator,
                 ),
                 const SizedBox(
                   height: 10,
@@ -81,15 +80,14 @@ class _LoginScreenState extends State<LoginScreen> {
                   obscureText: _obscureText,
                   decoration: textFormDecorationPassword(),
                   controller: _passwordController,
-                  validator: (value) =>
-                      ValidarorsAuth.passwordValidator(value!),
+                  validator: ValidarorsAuth.passwordValidator,
                 ),
                 const SizedBox(
                   height: 10,
                 ),
-                const ButtonToVerifyThatYouHaveAnAccount(
-                  pageName: SignUpScreen(),
-                  title: 'Don\'t have an account?',
+                 ButtonToVerifyThatYouHaveAnAccount(
+                  pageName: const SignUpScreen(),
+                  title: LocaleKeys.dontHave.tr(),
                 ),
                 const SizedBox(
                   height: 10,
@@ -100,7 +98,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       )
                     // * login button
                     : AuthButton(
-                        title: LocaleKeys.login.toString(),
+                        title: LocaleKeys.login.tr(),
                         onPressed: () async {
                           if (_formKey.currentState!.validate()) {
                             setState(() {
@@ -130,9 +128,9 @@ class _LoginScreenState extends State<LoginScreen> {
                   onPressed: () {
                     Navigator.pushNamed(context, ForgetPassword.id);
                   },
-                  child: const Text(
-                    'I forgot my password',
-                    style: TextStyle(fontSize: 18, color: Colors.pink),
+                  child:  Text(
+                    LocaleKeys.iForgot.tr(),
+                    style: const TextStyle(fontSize: 18, color: Colors.pink),
                   ),
                 ),
               ],

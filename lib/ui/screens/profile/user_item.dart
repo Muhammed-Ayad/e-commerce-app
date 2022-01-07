@@ -26,7 +26,7 @@ class UserItem extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'User Name : ${userModel.userName}',
+              LocaleKeys.userName.tr() + '  :  ' + userModel.userName,
               style: const TextStyle(
                 fontSize: 20,
                 color: Colors.teal
@@ -35,13 +35,7 @@ class UserItem extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            Text(
-              'Email : ${userModel.email}',
-              style: const TextStyle(
-                fontSize: 20,
-                color: Colors.pink
-              ),
-            ),
+            
             const SizedBox(
               height: 40,
             ),

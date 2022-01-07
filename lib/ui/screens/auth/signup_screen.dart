@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-
 import '../../../generated/locale_keys.g.dart';
 import '../../../themes/text_styles.dart';
 import '../../widgets/button_auth_widget.dart';
@@ -70,7 +69,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         hintText: LocaleKeys.userName.tr(),
                       ),
                       controller: _nameController,
-                      validator: (val) => ValidarorsAuth.nameValidator(val!),
+                      validator: ValidarorsAuth.nameValidator,
                     ),
                     const SizedBox(
                       height: 10,
@@ -84,7 +83,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         hintText: LocaleKeys.email.tr(),
                       ),
                       controller: _emailController,
-                      validator: (val) => ValidarorsAuth.emailValidator(val!),
+                      validator: ValidarorsAuth.emailValidator,
                     ),
                     const SizedBox(
                       height: 10,
@@ -96,15 +95,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       obscureText: _obscureText,
                       decoration: textFormDecorationPassword(),
                       controller: _passwordController,
-                      validator: (val) =>
-                          ValidarorsAuth.passwordValidator(val!),
+                      validator: ValidarorsAuth.passwordValidator,
                     ),
                     const SizedBox(
                       height: 20,
                     ),
-                    const ButtonToVerifyThatYouHaveAnAccount(
-                      pageName: LoginScreen(),
-                      title: 'Already have an account?',
+                     ButtonToVerifyThatYouHaveAnAccount(
+                      pageName: const LoginScreen(),
+                      title: LocaleKeys.youHave.tr(),
                     ),
                     const SizedBox(
                       height: 10,

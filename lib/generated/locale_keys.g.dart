@@ -16,6 +16,7 @@ abstract class  LocaleKeys {
   static const addToCart = 'addToCart';
   static const youHave = 'youHave';
   static const dontHave = 'dontHave';
+  static const iForgot = 'iForgot';
   static const checkHere = 'checkHere';
   static const login = 'login';
   static const signup = 'signup';

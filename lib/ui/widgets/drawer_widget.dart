@@ -1,3 +1,4 @@
+import 'package:e_commerce_app/ui/screens/auth/login_screen.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:easy_localization/src/public_ext.dart';
 import 'package:flutter/material.dart';
@@ -147,7 +148,7 @@ class DrawerWidget extends StatelessWidget {
               TextButton(
                   onPressed: () async {
                     await AuthService.signOut(context);
-                    Navigator.canPop(context) ? Navigator.pop(context) : null;
+                    Navigator.pushNamed(context, LoginScreen.id);
                   },
                   child: Text(
                     LocaleKeys.yes.tr(),
