@@ -1,7 +1,7 @@
 
 <div align="center">
   
-  <img src="assets/images/logo.png" alt='Weather-App'/>
+  <img src="assets/images/logo.png" alt='E Commerce App'/>
   
 # E-Commerce-App
 
