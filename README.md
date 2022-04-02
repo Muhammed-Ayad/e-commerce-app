@@ -1,5 +1,8 @@
 
 <div align="center">
+  
+  <img src="assets/images/logo.png" alt='Weather-App'/>
+  
 # E-Commerce-App
 
 ##  E-cmmerce application for online shopping
