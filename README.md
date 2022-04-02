@@ -1,3 +1,5 @@
+
+<div align="center">
 # E-Commerce-App
 
 ##  E-cmmerce application for online shopping
@@ -137,7 +139,7 @@
 
 </table>
 
-
+<div align="left">
 
 # Package
 
